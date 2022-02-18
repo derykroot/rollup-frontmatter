@@ -1,0 +1,59 @@
+{
+  "name": "@mdx-js/rollup-frontmatter",
+  "version": "2.0.0",
+  "description": "Rollup plugin with frontmatter for MDX",
+  "license": "MIT",
+  "keywords": [
+    "mdx",
+    "markdown",
+    "jsx",
+    "rollup",
+    "remark",
+    "react",
+    "preact",
+    "vue"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "lib/",
+    "index.d.ts",
+    "index.js"
+  ],
+  "dependencies": {
+    "@mdx-js/mdx": "^2.0.0",
+    "@rollup/pluginutils": "^4.0.0",
+    "remark-frontmatter": "^4.0.1",
+    "mdast-util-from-markdown": "^1.2.0",
+    "mdast-util-frontmatter": "^1.0.0",
+    "micromark-extension-frontmatter": "^1.0.0",
+    "js-yaml": "^4.1.0",
+    "source-map": "^0.7.0"
+  },
+  "peerDependencies": {
+    "rollup": ">=2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "react": "^18.0.0-beta-24dd07bd2-20211208",
+    "react-dom": "^18.0.0-beta-24dd07bd2-20211208",
+    "rollup": "^2.0.0"
+  },
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "rimraf \"lib/**/*.d.ts\" \"test/**/*.d.ts\" \"*.d.ts\" && tsc && type-coverage",
+    "test-api": "uvu test \"\\.js$\"",
+    "test-coverage": "c8 --check-coverage --100 --reporter lcov npm run test-api",
+    "test": "npm run build && npm run test-coverage"
+  },
+  "xo": false,
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "strict": true,
+    "ignoreCatch": true
+  }
+}
